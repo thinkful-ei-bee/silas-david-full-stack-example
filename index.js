@@ -3,10 +3,11 @@
 const express = require('express');
 const books = require('./book');
 const morgan = require('morgan');
-
+const cors = require('cors');
 const app = express();
 
 app.use(morgan('common'));
+app.use(cors());
 
 app.get('/books', (req, res) => {
   const { search = '', sort } = req.query;
